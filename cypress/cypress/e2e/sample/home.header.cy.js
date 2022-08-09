@@ -2,7 +2,7 @@
 
 describe("header of homepage", () => {
   it("header have 5 link", () => {
-    cy.visit("cms-lyart.vercel.app");
+    cy.visit("/");
     cy.get("#menu li a").should("have.length", 5);
   });
   it("links should visible", () => {
