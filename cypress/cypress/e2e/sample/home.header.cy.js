@@ -11,6 +11,7 @@ describe("header of homepage", () => {
 
   it("header switch page", () => {
     cy.get("#menu > :nth-child(1) > :nth-child(1) > a").click();
+    cy.url().should('include', '/events');
     cy.contains(
       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem"
     ).should("be.visible");
@@ -19,10 +20,13 @@ describe("header of homepage", () => {
       "Do you have some questions? Fill the form and get an answer!"
     ).should("be.visible");
     cy.get("#menu > :nth-child(1) > :nth-child(2) > a").click();
+    cy.url().should('include', '/events');
     cy.get("#logo").click();
     cy.get("#menu > :nth-child(2) > :nth-child(1) > a").click();
+    cy.url().should('include', '/gallery');
     cy.get("#logo").click();
     cy.get("#menu > :nth-child(2) > :nth-child(2) > a").click();
+    cy.url().should('include', '/gallery');
     cy.get("#logo").click();
   });
 
