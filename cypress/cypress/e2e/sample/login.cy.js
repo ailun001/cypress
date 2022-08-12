@@ -57,7 +57,7 @@ describe("Login page", () => {
   });
 
   it("verify login with manager", () => {
-    cy.get("#login_role > :nth-child(1)").click();
+    cy.get("#login_role > :nth-child(3)").click();
     cy.get("#login_email").type("manager@admin.com");
     cy.get("#login_password").type("111111");
     cy.get("[type=submit]").click();
