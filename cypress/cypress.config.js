@@ -6,6 +6,6 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
 
-    baseUrl:'https://cms-lyart.vercel.app'
+    baseUrl:'http://localhost:3000'
   },
 });
