@@ -8,6 +8,6 @@ module.exports = defineConfig({
       //https://cms-lyart.vercel.app/
       //http://localhost:3000
     },
-    baseUrl: "https://cms-lyart.vercel.app/",
+    baseUrl: "http://localhost:3000",
   },
 });
