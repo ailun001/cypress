@@ -1,0 +1,37 @@
+{"data": {
+        "courses": [
+            
+            {
+                "createdAt": "2022-08-18 04:14:20",
+                "updatedAt": "2022-08-18 04:14:20",
+                "id": 1706,
+                "cover": "http://lorempixel.com/800/600/technics/",
+                "detail": "e2e abc example need have 100 word x xxxxx xxxxx xxxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx.103",
+                "duration": 30,
+                "durationUnit": 5,
+                "maxStudents": 10,
+                "name": "aaa",
+                "price": 5000,
+                "uid": "c5e80093-a777-4ef1-96a6-799c691665f0",
+                "star": 0,
+                "startTime": "2022-08-19 08:00:00",
+                "status": 0,
+                "scheduleId": 2146,
+                "teacherId": 77,
+                "type": [
+                    {
+                        "id": 1,
+                        "name": "C"
+                    }
+                ],
+                "teacherName": "Fanny Haag"
+            }
+        ],
+        "total": 1,
+        "paginator": {
+            "page": null,
+            "limit": null
+        }
+    },
+    "code":200,"msg":"success"
+}
