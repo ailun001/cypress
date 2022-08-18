@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("header of homepage", () => {
+describe("course page", () => {
   beforeEach(function () {
     cy.login('manager@admin.com','manager');
   });
