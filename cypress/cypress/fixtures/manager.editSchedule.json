@@ -1,0 +1,41 @@
+{
+    "data": {
+        "createdAt": "2022-08-18 04:14:20",
+        "updatedAt": "2022-08-18 04:14:26",
+        "id": 2146,
+        "status": 0,
+        "current": null,
+        "classTime": [
+            "Monday 08:14:23",
+            "Friday 12:00:00"
+        ],
+        "chapters": [
+            {
+                "createdAt": "2022-08-18 04:14:26",
+                "updatedAt": "2022-08-18 04:14:26",
+                "id": 10534,
+                "name": "cn1",
+                "order": 1,
+                "content": "cc1"
+            },
+            {
+                "createdAt": "2022-08-18 04:14:26",
+                "updatedAt": "2022-08-18 04:14:26",
+                "id": 10535,
+                "name": "cn2",
+                "order": 2,
+                "content": "cc2"
+            },
+            {
+                "createdAt": "2022-08-18 04:14:26",
+                "updatedAt": "2022-08-18 04:14:26",
+                "id": 10536,
+                "name": "cn3",
+                "order": 3,
+                "content": "cc3"
+            }
+        ]
+    },
+    "code": 200,
+    "msg": "success"
+}
