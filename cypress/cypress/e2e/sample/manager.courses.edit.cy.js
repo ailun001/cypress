@@ -17,13 +17,13 @@ describe("course page", () => {
       .then(() => {
         cy.get(".rc-virtual-list-holder-inner").contains("Name").click();
       });
-    cy.get("#rc_select_3").click().type("aaa");
-    cy.intercept("GET", "http://cms.chtoma.com/api/courses?name=aaa&userId=3", {
+    cy.intercept("GET", `${Cypress.env("prod")}/courses?name=aaa&userId=3`, {
       fixture: "manager.edit.json",
     }).as("edit");
-    cy.wait(5000);
+    cy.get("#rc_select_3").click().type("aaa");
+
     //cy.get('.rc-virtual-list-holder-inner').last().scrollTo('bottom');
-    //cant do scroll
+    //cant do scroll / how to check virtual list scroll
     //cy.get(':nth-child(4) > :nth-child(1) > .ant-select-dropdown').scrollTo('bottom').contains('c5e80093').click();
     //cy.get(':nth-child(4) > :nth-child(1) > .ant-select-dropdown').first().click();
     //the first 'b012dfba'
@@ -34,15 +34,19 @@ describe("course page", () => {
 
     cy.intercept(
       "GET",
-      "http://cms.chtoma.com/api/courses/schedule?courseId=undefined&scheduleId=2146"
+      `${Cypress.env(
+        "prod"
+      )}/courses/schedule?courseId=undefined&scheduleId=2146`,
+      { fixture: "manager.editSchedule.json" }
     ).as("editSchedule");
     cy.get("#rc-tabs-0-tab-chapter").click();
     cy.wait("@editSchedule").then((res) => {
-      const data = res.response.body.data;
-      cy.get('[placeholder="Chapter Name"]').each(($value) => {
-        expect(data).contain($value.val());
-        expect(data);
-        // each() loop
+      const data = res.response.body.data.chapters;
+      cy.get('[placeholder="Chapter Name"]').each((element, index) => {
+        expect(element).have.value(data[index].name);
+      });
+      cy.get('[placeholder="Chapter content"]').each((element, index) => {
+        expect(element).have.value(data[index].content);
       });
     });
   });

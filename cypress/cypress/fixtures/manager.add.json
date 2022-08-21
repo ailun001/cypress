@@ -1,0 +1,28 @@
+{
+    "data": {
+        "name": "aaa",
+        "uid": "05dcf589-0145-434f-be06-99d590ff200d",
+        "startTime": "2022-08-23",
+        "price": 5000,
+        "maxStudents": 10,
+        "duration": 30,
+        "detail": "e2e abc example need have 100 word x xxxxx xxxxx xxxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx.103",
+        "durationUnit": 5,
+        "type": [
+            {
+                "id": 1,
+                "name": "C"
+            }
+        ],
+        "scheduleId": 2215,
+        "teacherId": 77,
+        "createdAt": "2022-08-21 08:35:12",
+        "updatedAt": "2022-08-21 08:35:12",
+        "id": 1754,
+        "cover": "http://lorempixel.com/800/600/technics/",
+        "star": 0,
+        "teacherName": "Fanny Haag"
+    },
+    "code": 201,
+    "msg": "success"
+}
