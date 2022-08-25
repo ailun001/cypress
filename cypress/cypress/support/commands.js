@@ -24,15 +24,50 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('login', (email, role) => {
-    cy.visit("/login");
-    cy.intercept('POST','http://cms.chtoma.com/api/login').as('login');
-    const roleId = { student:1, teacher:2 , manager: 3};
-    const index = roleId[role]
-    cy.get(`#login_role > :nth-child(${index})`).click();
-    cy.get("#login_email").type(email);
-    cy.get("#login_password").type('111111');
-    cy.get("[type=submit]").click();
-    cy.wait('@login');
-})
+Cypress.Commands.add("login", (email, role) => {
+  const loginPath = "/login";
+  cy.location("pathname").then((path) => {
+    if (path !== loginPath) {
+      cy.visit(loginPath);
+    }
+  });
 
+  const log = Cypress.log({
+    name: "login",
+    displayName: "LOGIN",
+    message: `${email}`,
+  });
+
+  cy.intercept("POST", `${Cypress.env("prod")}/login`, {
+    data: {
+      token: Cypress.env("managerToken"),
+      role: "manager",
+      userId: 3,
+    },
+    code: 201,
+    msg: "success",
+  }).as("login");
+
+  const roleId = { student: 1, teacher: 2, manager: 3 };
+  const index = roleId[role];
+  cy.get(`#login_role > :nth-child(${index})`).click();
+  cy.get("#login_email").type(email);
+  cy.get("#login_password").type("111111");
+  cy.get("[type=submit]").click();
+
+  cy.wait("@login").then((res) => {
+    const data = res.response.body.data;
+    Cypress.env("token", data.token);
+    log.set({
+      consoleProps: () => {
+        return {
+          userId: data.userId,
+          userRole: data.role,
+          userToken: data.token,
+        };
+      },
+    });
+  });
+
+  log.end();
+});
