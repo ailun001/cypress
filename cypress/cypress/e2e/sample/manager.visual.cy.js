@@ -21,7 +21,7 @@ describe("dashboard login with manager", () => {
       */
     });
   
-    it("meanu visual", () => {
+    it("menu visual", () => {
         cy.get('.ant-menu').should('be.visible');
         cy.get('[role=menu] li').should('have.length',5);
       });
@@ -33,10 +33,10 @@ describe("dashboard login with manager", () => {
         cy.get('[role=menuitem]').should('have.length',10);
     })
 
-    it('body visual', () =>{
+    it.only('body visual', () =>{
         cy.get('.ant-breadcrumb').should('be.visible');
         cy.get('.ant-layout-content').should('be.visible');
-        cy.get('#contentLayout').scrollTo('bottom');
+        cy.get('.ant-layout').last().scrollTo('bottom');
         cy.get('.ant-breadcrumb').should('not.be.visible');
     })
   });
