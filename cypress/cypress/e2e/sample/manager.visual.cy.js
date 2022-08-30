@@ -33,10 +33,15 @@ describe("dashboard login with manager", () => {
         cy.get('[role=menuitem]').should('have.length',10);
     })
 
-    it.only('body visual', () =>{
+    it('body visual', () =>{
         cy.get('.ant-breadcrumb').should('be.visible');
         cy.get('.ant-layout-content').should('be.visible');
-        cy.get('.ant-layout').last().scrollTo('bottom');
+        cy.scrollTo('bottom');
         cy.get('.ant-breadcrumb').should('not.be.visible');
     })
+
+    it.only('Distribution', () => {
+      cy.get('.ant-card').eq(3).should('be.visible');
+      cy.get('.ant-card').eq(3).percySnapshot('ant-card');
+    });
   });

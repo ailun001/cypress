@@ -42,8 +42,8 @@ describe("user api", () => {
     it("signup student", () => {
       cy.request("POST", `${Cypress.env("prod")}/signup`, {
         email: "aaa@admin.com",
-        password: "111111",
-        role: "student",
+        password: "111111", //
+        role: "student", //
       }).then((res) => {
         const data = res.body.data;
         expect(data.email).be.exist;
