@@ -3,6 +3,9 @@
     "test": "cypress open"
   },
   "devDependencies": {
+    "@applitools/eyes-cypress": "^3.27.1",
+    "@percy/cli": "^1.10.0",
+    "@percy/cypress": "^3.1.2",
     "cypress": "^10.4.0",
     "prettier": "2.7.1"
   },
