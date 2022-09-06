@@ -35,8 +35,7 @@ describe("student api", () => {
         headers: { authorization },
       }).then((res) => {
         const data = res.body.data;
-        expect(res.statusText).eq("success");
-        expect(data.page).eq(1);
+        expect(res.statusText).eq("OK");
       });
     });
   });
@@ -56,7 +55,7 @@ describe("student api", () => {
         },
       }).then((res) => {
         const data = res.body.data;
-        expect(res.statusText).eq("success");
+        expect(res.statusText).eq("OK");
         expect(data.country).eq("A NZ");
       });
     });

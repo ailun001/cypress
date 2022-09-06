@@ -36,11 +36,12 @@ describe("dashboard login with manager", () => {
     it('body visual', () =>{
         cy.get('.ant-breadcrumb').should('be.visible');
         cy.get('.ant-layout-content').should('be.visible');
-        cy.scrollTo('bottom');
-        cy.get('.ant-breadcrumb').should('not.be.visible');
+        //cy.scrollTo('bottom');
+        //cy.get('.ant-breadcrumb').should('not.be.visible');
     })
 
-    it.only('Distribution', () => {
+    it('Distribution', () => {
+      cy.wait(5000);
       cy.get('.ant-card').eq(3).should('be.visible');
       cy.get('.ant-card').eq(3).percySnapshot('ant-card');
     });
